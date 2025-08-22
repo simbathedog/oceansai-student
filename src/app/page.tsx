@@ -3,15 +3,15 @@
 import { useEffect, useState } from 'react';
 
 type LessonRef = { id: string; title: string; order: number };
-type ModuleOutline = { module:{ id:string; title:string; slug:string }, lessons: LessonRef[] };
+type ModuleOutline = { module: { id: string; title: string; slug: string }, lessons: LessonRef[] };
 
 export default function Page() {
   const [mods, setMods] = useState<ModuleOutline[]>([]);
-  const base = process.env.NEXT_PUBLIC_API_BASE!;
+  const base = process.env.NEXT_PUBLIC_API_BASE as string;
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(\\/catalog/grades/3/subjects/math/modules\, { cache: 'no-store' });
+      const res = await fetch(base + '/catalog/grades/3/subjects/math/modules', { cache: 'no-store' });
       const json = await res.json();
       setMods(json.data || []);
     })();
@@ -25,7 +25,7 @@ export default function Page() {
           <li key={m.module.id} className="border rounded-xl p-4">
             <div className="font-medium">{m.module.title}</div>
             <div className="text-sm text-gray-500">Lessons: {m.lessons.length}</div>
-            <a href={/module/} className="inline-block mt-2 underline">Open textbook</a>
+            <a href={'/module/' + m.module.id} className="inline-block mt-2 underline">Open textbook</a>
           </li>
         ))}
       </ul>
