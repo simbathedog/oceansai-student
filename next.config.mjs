@@ -10,7 +10,7 @@ const nextConfig = {
               "default-src 'self'; img-src 'self' data: https:; font-src 'self' data:; " +
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' vercel.live; " +
               "style-src 'self' 'unsafe-inline'; " +
-              "connect-src 'self' https://oceansai-api-production.up.railway.app https://*.vercel.app; " +
+              "connect-src 'self'  https://vitals.vercel-insights.com https://analytics.vercel-insights.com; " +
               "frame-ancestors 'none'; base-uri 'self'; form-action 'self'" },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
