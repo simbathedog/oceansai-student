@@ -6,9 +6,7 @@ export default function ApiStatus() {
   const [ok, setOk] = useState<boolean | null>(null);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-
-    async function ping() {
+        async function ping() {
       try {
         const r = await fetch(base + "/catalog/ping", { cache: "no-store" });
         setOk(r.ok);
@@ -18,7 +16,7 @@ export default function ApiStatus() {
     }
 
     ping();
-    timer = setInterval(ping, 20000); // poll every 20s
+    const timer = setInterval(ping, 20000); // poll every 20s
     return () => clearInterval(timer);
   }, [base]);
 

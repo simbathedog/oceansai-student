@@ -17,7 +17,7 @@ export default function Page() {
         const res = await fetch(base + "/catalog/grades/3/subjects/math/modules", { cache: "no-store" });
         const json = await res.json();
         setMods(json.data || []);
-      } catch (e: any) {
+      } catch (_err: unknown) {
         setError("Could not load modules.");
       } finally {
         setLoading(false);
