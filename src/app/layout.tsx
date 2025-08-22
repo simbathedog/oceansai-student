@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import ApiStatus from "../components/ApiStatus";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: "OceansAI Student",
