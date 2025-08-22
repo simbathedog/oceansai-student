@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 type LessonRef = { id: string; title: string; order: number };
 type ModuleOutline = { module: { id: string; title: string; slug: string }, lessons: LessonRef[] };
@@ -25,7 +26,7 @@ export default function Page() {
           <li key={m.module.id} className="border rounded-xl p-4">
             <div className="font-medium">{m.module.title}</div>
             <div className="text-sm text-gray-500">Lessons: {m.lessons.length}</div>
-            <a href={'/module/' + m.module.id} className="inline-block mt-2 underline">Open textbook</a>
+            <Link href={'/module/' + m.module.id} className="inline-block mt-2 underline">Open textbook</Link>
           </li>
         ))}
       </ul>

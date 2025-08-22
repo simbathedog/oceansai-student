@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
 type Block =
@@ -41,7 +42,7 @@ export default function ModulePage() {
 
   return (
     <main className="p-6 max-w-3xl mx-auto space-y-6">
-      <a href="/" className="underline text-sm">&larr; Back</a>
+      <Link href="/" className="underline text-sm">&larr; Back</Link>
       <h1 className="text-2xl font-semibold">{mod.title}</h1>
 
       {mod.lessons.map(lesson => (
